@@ -1,0 +1,37 @@
+function Video({
+  title,
+  date,
+  views,
+  channel,
+  id,
+  children,
+  verified,
+  deleteVideo,
+  editVideo,
+}) {
+  return (
+    <div className="card" style={{ width: "16rem" }}>
+      <div className="btn btn-danger" onClick={() => deleteVideo(id)}>
+        X
+      </div>
+      <div className="btn btn-primary edit-btn" onClick={() => editVideo(id)}>
+        eidt
+      </div>
+      <img
+        src={`https://picsum.photos/id/${id}/200/300`}
+        style={{ height: "12rem" }}
+        className="card-img-top"
+        alt="..."
+      />
+      <div className="card-body">
+        <h5 className="card-title">{title}</h5>
+        <p className="card-text">
+          {date}, {views}, {channel} {verified && "✅"}
+        </p>
+        {/* play/pause button */}
+        {children}
+      </div>
+    </div>
+  );
+}
+export default Video;
